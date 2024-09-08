@@ -4,44 +4,41 @@ import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
 import Book from '../components/Book'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
 function Dashboard() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user } = useSelector((state) => state.auth)
+  const { user, isLoading } = useSelector((state) => state.auth)
 
   useEffect(() => {
     if (!user) {
       navigate('/login')
     }
-   
-
+    
+    // Cleanup on component unmount
     return () => {
       dispatch(reset())
     }
   }, [user, navigate, dispatch])
 
-  const onLogout = () => {
-    dispatch(logout())
-    dispatch(reset())
-    navigate('/login')
+  // Show spinner while loading
+  if (isLoading) {
+    return <Spinner />
   }
 
   return (
     <>
       <section className='heading'>
-        <h1>Welcome {user && user.name}</h1>
-        <p>Book</p>
       </section>
       <section className='content'>
-        <button 
-          onClick={onLogout} 
-          className='mt-4 py-2 px-4 bg-red-600 text-white rounded-md'>
-          Logout
-        </button>
+        <Navbar />
+        <p>Book</p>
+        <Book />
       </section>
-      <Book/>
+      <Footer />
     </>
   )
 }

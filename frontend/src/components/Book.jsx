@@ -12,7 +12,7 @@ const Book = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get('http://localhost:5001/api/files');
+        const response = await axios.get('https://file-service-api.onrender.com/api/files');
         setFiles(response.data);
       } catch (error) {
         setError('Error fetching files. Please try again later.');
@@ -38,24 +38,18 @@ const Book = () => {
   }
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
+    <div className="grid grid-cols-2 sm:grid-cols-2 gap-6 p-4">
       {files.map(file => (
-        <div key={file._id} style={{ width: '100%', maxWidth: '300px', marginBottom: '20px' }}>
-          <div style={{ border: '1px solid #ddd', borderRadius: '5px', overflow: 'hidden' }}>
-            <Link to={`/file/${file._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-              {file.coverImage && (
-                <img
-                  src={file.coverImage.url}
-                  alt={file.title || 'File cover'}
-                  style={{ width: '100%', maxHeight: '200px', objectFit: 'cover' }}
-                />
-              )}
-              <div style={{ padding: '10px' }}>
-                <h2 style={{ fontSize: '1.2rem', marginBottom: '5px' }}>{file.title || 'Untitled'}</h2>
-                <p style={{ fontSize: '0.9rem', margin: '0' }}>Author: {file.author || 'Unknown'}</p>
-              </div>
-            </Link>
-          </div>
+        <div key={file._id} className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
+          <Link to={`/file/${file._id}`}>
+            {file.coverImage && (
+              <img
+                src={file.coverImage.url}
+                alt={file.title || 'File cover'}
+                className="w-full h-48 object-cover"
+              />
+            )}
+          </Link>
         </div>
       ))}
     </div>
