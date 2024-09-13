@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { logout, reset } from '../features/auth/authSlice'
+import { reset } from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
 import Book from '../components/Book'
 import Footer from '../components/Footer'
@@ -10,7 +10,6 @@ import Navbar from '../components/Navbar'
 function Dashboard() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
   const { user, isLoading } = useSelector((state) => state.auth)
 
   useEffect(() => {
@@ -24,22 +23,19 @@ function Dashboard() {
     }
   }, [user, navigate, dispatch])
 
-  // Show spinner while loading
   if (isLoading) {
     return <Spinner />
   }
 
   return (
-    <>
-      <section className='heading'>
-      </section>
-      <section className='content'>
-        <Navbar />
-        <p>Book</p>
-        <Book />
+    <div className='flex flex-col min-h-screen'>
+      <section className='flex-1 p-4 bg-white'>
+        <div className='mt-4'>
+          <Book />
+        </div>
       </section>
       <Footer />
-    </>
+    </div>
   )
 }
 

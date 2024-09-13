@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@capacitor/android": "^6.1.1",
-    "@capacitor/core": "^6.1.1",
-    "@capacitor/ios": "^6.1.1",
+    "@capacitor-community/privacy-screen": "^5.2.1",
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/ios": "^6.1.2",
+    "@capacitor/splash-screen": "^6.0.2",
     "@reduxjs/toolkit": "^2.2.7",
     "axios": "^1.7.2",
     "flowbite": "^2.5.1",
@@ -25,7 +27,8 @@
     "react-toastify": "^10.0.5"
   },
   "devDependencies": {
-    "@capacitor/cli": "^6.1.1",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^6.1.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",

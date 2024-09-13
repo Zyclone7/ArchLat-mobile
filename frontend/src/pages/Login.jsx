@@ -87,8 +87,8 @@ function Login() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 md:px-8">
-      <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700" style={{ backgroundColor: '#0C5673' }}>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 px-4 md:px-8">
+      <div className="w-full max-w-sm p-4 bg-white dark-mode border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700" style={{ backgroundColor: '#0C5673' }}>
         <div className="flex justify-center mb-6">
           <img src={Logo} alt="Logo" className="w-24 h-auto md:w-28" />
         </div>
@@ -102,7 +102,7 @@ function Login() {
               id="email"
               value={email}
               onChange={onChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               placeholder="name@company.com"
               aria-label="Email"
             />
@@ -117,7 +117,7 @@ function Login() {
               value={password}
               onChange={onChange}
               placeholder="••••••••"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               aria-label="Password"
             />
             {passwordError && <p className="text-red-500 text-sm mt-1">{passwordError}</p>}

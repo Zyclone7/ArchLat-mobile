@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="ic_launcher_background">#FFFFFF</color>
-    <string name="app_name">archlat</string>
+    <string name="app_name">Eostrix</string>
     <string name="custom_url_scheme">com.example.app</string>
     <string name="package_name">com.example.app</string>
-    <string name="title_activity_main">archlat</string>
+    <string name="title_activity_main">Eostrix</string>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         
         <item name="colorPrimary">@color/colorPrimary</item>

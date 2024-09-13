@@ -106,7 +106,7 @@ const FileRead = () => {
 
         if (totalTimeSpent > 0) {
           try {
-            await axios.post(`http://localhost:5000/time-spent/${userId}/${fileId}`, { timeSpent: Math.floor(totalTimeSpent / 1000) }); // time in seconds
+            await axios.post(`https://time-service-api.onrender.com/time-spent/${userId}/${fileId}`, { timeSpent: Math.floor(totalTimeSpent / 1000) }); // time in seconds
           } catch (error) {
             console.error('Error saving time spent:', error);
           }

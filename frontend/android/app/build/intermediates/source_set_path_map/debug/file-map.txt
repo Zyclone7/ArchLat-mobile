@@ -28,4 +28,6 @@ com.example.app-merged_res-26 /Users/harithkun/Developer/webdesign/ArchLat-mobil
 com.example.app-debug-27 /Users/harithkun/Developer/webdesign/ArchLat-mobile/frontend/android/app/src/debug/res
 com.example.app-main-28 /Users/harithkun/Developer/webdesign/ArchLat-mobile/frontend/android/app/src/main/res
 com.example.app-packaged_res-29 /Users/harithkun/Developer/webdesign/ArchLat-mobile/frontend/android/capacitor-cordova-android-plugins/build/intermediates/packaged_res/debug
-com.example.app-packaged_res-30 /Users/harithkun/Developer/webdesign/ArchLat-mobile/frontend/node_modules/@capacitor/android/capacitor/build/intermediates/packaged_res/debug
+com.example.app-packaged_res-30 /Users/harithkun/Developer/webdesign/ArchLat-mobile/frontend/node_modules/@capacitor-community/privacy-screen/android/build/intermediates/packaged_res/debug
+com.example.app-packaged_res-31 /Users/harithkun/Developer/webdesign/ArchLat-mobile/frontend/node_modules/@capacitor/android/capacitor/build/intermediates/packaged_res/debug
+com.example.app-packaged_res-32 /Users/harithkun/Developer/webdesign/ArchLat-mobile/frontend/node_modules/@capacitor/splash-screen/android/build/intermediates/packaged_res/debug

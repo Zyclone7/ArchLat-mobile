@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { logout, reset } from '../features/auth/authSlice'
-import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { logout, reset } from '../features/auth/authSlice';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Footer() {
   const navigate = useNavigate();
@@ -56,14 +56,17 @@ function Footer() {
       {/* Drawer */}
       <div className={`fixed top-0 right-0 w-64 h-full bg-gray-800 text-white p-6 z-30 transform transition-transform duration-300 ${isDrawerOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <button onClick={toggleDrawer} className="text-white mb-4">
-          Close Drawer
+        <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+        </svg>
+
         </button>
         <div>
-          <p className="mb-2">Drawer Content</p>
+          {/* Display user's name */}
+          <p className="mb-4 text-lg font-semibold">{user?.name || 'Guest'}</p>
           <ul>
-            <li className="mb-2">Link 1</li>
-            <li className="mb-2">Link 2</li>
-            <li className="mb-2" onClick={onLogout}>Logout</li>
+            <li className="mb-4">Link 1</li>
+            <li className="mb-4 cursor-pointer" onClick={onLogout}>Logout</li>
           </ul>
         </div>
       </div>
