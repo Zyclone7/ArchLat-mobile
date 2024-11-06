@@ -17,7 +17,7 @@ function Navbar({ handleSearch }) {
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
           <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
           <span className="text-gray-700 text-sm font-medium">
-            {user ? `Welcome, ${user.name}` : 'Welcome'}
+            {user ? `Welcome, ${user.firstName}` : 'Welcome'}
           </span>
           <div className="flex items-center space-x-6 rtl:space-x-reverse">
             <a href="tel:5541251234" className="text-sm text-gray-500 dark:text-white hover:underline"></a>

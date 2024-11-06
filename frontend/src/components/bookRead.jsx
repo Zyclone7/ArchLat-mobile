@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ReactReader } from 'react-reader';
 import axios from 'axios';
@@ -18,7 +18,8 @@ const FileRead = () => {
   const [inactiveTime, setInactiveTime] = useState(0);
   const [isActive, setIsActive] = useState(true);
   const [resumeTimeout, setResumeTimeout] = useState(null);
-
+  
+  const readingSessionActive = useRef(false); // Ref to track reading session
   const { user } = useSelector((state) => state.auth);
   const userId = user ? user._id : null;
 
@@ -26,7 +27,7 @@ const FileRead = () => {
   useEffect(() => {
     const fetchFileEpubUrl = async () => {
       try {
-        const response = await axios.get(`https://file-service-api.onrender.com/api/files/${fileId}`);
+        const response = await axios.get(`http://localhost:5003/api/files/${fileId}`);
         if (response.data.url) {
           setEpubUrl(response.data.url);
         } else {
@@ -104,11 +105,14 @@ const FileRead = () => {
         const currentTime = Date.now();
         const totalTimeSpent = (currentTime - startTime) - inactiveTime;
 
-        if (totalTimeSpent > 0) {
+        if (totalTimeSpent > 0 && !readingSessionActive.current) {
           try {
-            await axios.post(`https://time-service-api.onrender.com/time-spent/${userId}/${fileId}`, { timeSpent: Math.floor(totalTimeSpent / 1000) }); // time in seconds
+            readingSessionActive.current = true; // Mark the session as active
+            await axios.post(`http://localhost:5005/api/time-spent/${userId}/${fileId}`, { timeSpent: Math.floor(totalTimeSpent / 1000) }); // time in seconds
           } catch (error) {
             console.error('Error saving time spent:', error);
+          } finally {
+            readingSessionActive.current = false; // Reset the session status after saving
           }
         }
       } else if (!userId) {

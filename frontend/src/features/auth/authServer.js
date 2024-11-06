@@ -1,5 +1,5 @@
 import axios from 'axios'
-const API_URL = 'https://restapi-test-goals.onrender.com/api/users/'
+const API_URL = 'http://localhost:5004/api/users/'
 
 //Register user
 

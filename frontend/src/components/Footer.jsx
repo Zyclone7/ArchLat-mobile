@@ -63,7 +63,7 @@ function Footer() {
         </button>
         <div>
           {/* Display user's name */}
-          <p className="mb-4 text-lg font-semibold">{user?.name || 'Guest'}</p>
+          <p className="mb-4 text-lg font-semibold">{user?.firstName + ' ' + user?.secondName || 'Guest'}</p>
           <ul>
             <li className="mb-4">Link 1</li>
             <li className="mb-4 cursor-pointer" onClick={onLogout}>Logout</li>

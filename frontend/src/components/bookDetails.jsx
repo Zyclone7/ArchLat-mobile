@@ -22,7 +22,7 @@ const BookDetails = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get(`https://file-service-api.onrender.com/api/files/${fileId}`);
+        const response = await axios.get(`http://localhost:5003/api/files/${fileId}`);
         if (isMounted) {
           setFile(response.data);
         }
